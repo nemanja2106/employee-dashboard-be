@@ -10,13 +10,17 @@
     <tbody>
     @foreach (var employee in Model)
     {
-        var rowClass = employee.TotalHoursWorked < 100 ? "table-danger" : "";
+    var rowClass = employee.TotalHoursWorked < 100 ? "table-danger" : "";
 
-        <tr class="@rowClass">
-            <td>@employee.EmployeeName</td>
-            <td>@employee.TotalHoursWorked</td>
-        </tr>
+    <tr class="@rowClass">
+        <td>@employee.EmployeeName</td>
+        <td>@employee.TotalHoursWorked</td>
+    </tr>
     }
     </tbody>
 </table>
 
+@if (ViewBag.PieChartImage != null)
+{
+<img src="data:image/png;base64,@(Convert.ToBase64String(ViewBag.PieChartImage))" alt="Employee Work Pie Chart" />
+}
