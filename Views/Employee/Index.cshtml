@@ -1,0 +1,22 @@
+﻿@model List<EmployeeSummary>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Employee Name</th>
+        <th>Total Hours Worked</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var employee in Model)
+    {
+        var rowClass = employee.TotalHoursWorked < 100 ? "table-danger" : "";
+
+        <tr class="@rowClass">
+            <td>@employee.EmployeeName</td>
+            <td>@employee.TotalHoursWorked</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
